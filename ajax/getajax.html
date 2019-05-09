@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button>发送ajax get请求</button>
+    <script>
+        var bu = document.querySelector('button');
+        bu.addEventListener('click', (e1) => {
+            var xhr = new XMLHttpRequest();
+            // xhr.open('get', 'http://localhost:3000/ni', true);
+            // xhr.send();
+            // xhr.onreadystatechange = (e2) => {
+            //     if (xhr.readyState === 4) {
+            //         if (xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) {
+            //             console.log(xhr.responseText);
+
+            //         } else {
+            //             console.log('没有接受数据');
+            //         }
+            //     }
+            // }
+            xhr.open('post', 'http://localhost:3000/denglu', true);
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhr.send();
+            xhr.onreadystatechange = (e2) => {
+                if (xhr.readyState === 4) {
+                    if (xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) {
+                        console.log(xhr.responseText);
+
+                    } else {
+                        console.log('没有接受数据');
+                    }
+                }
+            }
+
+        }, false);
+    </script>
+    <script>
+        var unixTimestamp = new Date( 1552293351000 ) ;
+        console.log(unixTimestamp.toLocaleString());
+        
+    </script>
+
+</body>
+
+</html>
